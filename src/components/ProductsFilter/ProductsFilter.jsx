@@ -10,6 +10,10 @@ export const ProductsFilter = () => {
   const [category, setCategory] = useState("all");
   const onCategoryChange = (e) => {
     setCategory(e.target.value);
+    const filteredArray = productsList.filter(
+      (item) => item.category === category
+    );
+    console.log(filteredArray);
   };
   return (
     <div className="allFiltersWrapper">

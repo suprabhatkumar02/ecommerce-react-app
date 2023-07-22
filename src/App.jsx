@@ -5,17 +5,18 @@ import ProductPage from "./routes/product-page";
 import CartPage from "./routes/cart-page";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import SharedLayout from "./routes/SharedLayout";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/product-page" element={<ProductPage />} />
-        <Route exact path="/cart-page" element={<CartPage />} />
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route exact path="/product-page" element={<ProductPage />} />
+          <Route exact path="/cart-page" element={<CartPage />} />
+        </Route>
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 };
